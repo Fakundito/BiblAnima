@@ -10,10 +10,14 @@ import Persistencia.Conn;
 public class Manejador {
 
 	private Conn connect = new Conn();
-	private Connection con = Conn.conectarMySQL();
+	private Connection con = connect.conectarMySQL();
 	private Statement s;
 	private ArrayList<Usuario> usuario;
 	private ArrayList<Libro> libro;
+
+	// s = con.createStatement(); 			Al principio de cada metodo
+	// ResultSet rs = s.executeQuery(...)	Traer desde BD
+	// s.executeUpdate(...)					Mandar a BD
 
 	public ArrayList<Usuario> getUsuario() {
 		return usuario;

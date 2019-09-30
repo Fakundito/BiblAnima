@@ -11,12 +11,22 @@ public class Prestamo {
 	private Boolean devuelto;
 	private ArrayList<Libro> libro;
 	
+	Notificacion[] notificacion = new Notificacion[3];
+	
 	public Prestamo(int id, Date fechaSolicitado, Date fechaDevolucion, boolean devuelto) {
 		super();
 		this.id=id;
 		this.fechaSolicitado=fechaSolicitado;
 		this.fechaDevolucion=fechaDevolucion;
 		this.devuelto=devuelto;
+	}
+
+	public Notificacion[] getNotificacion() {
+		return notificacion;
+	}
+
+	public void setNotificacion(Notificacion[] notificacion) {
+		this.notificacion = notificacion;
 	}
 
 	public ArrayList<Libro> getLibro() {
