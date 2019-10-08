@@ -15,6 +15,8 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTable;
+import javax.swing.JList;
 
 public class Presentacion extends JFrame {
 
@@ -29,6 +31,7 @@ public class Presentacion extends JFrame {
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private JTextField textField_4;
+	private JTextField textField_5;
 
 	/**
 	 * Launch the application.
@@ -64,53 +67,30 @@ public class Presentacion extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel Configurar = new JPanel();
-		Configurar.setBounds(0, 0, 434, 316);
-		contentPane.add(Configurar);
-		Configurar.setLayout(null);
-		Configurar.setVisible(false);
+		JPanel AltaLibro = new JPanel();
+		AltaLibro.setBounds(0, 0, 434, 316);
+		contentPane.add(AltaLibro);
+		AltaLibro.setLayout(null);
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(162, 53, 112, 20);
-		Configurar.add(comboBox_1);
-		
-		textField_1 = new JTextField();
-		textField_1.setBounds(108, 97, 86, 20);
-		Configurar.add(textField_1);
-		textField_1.setColumns(10);
-		
-		textField_2 = new JTextField();
-		textField_2.setBounds(258, 97, 86, 20);
-		Configurar.add(textField_2);
-		textField_2.setColumns(10);
-		
-		textField_3 = new JTextField();
-		textField_3.setBounds(108, 155, 86, 20);
-		Configurar.add(textField_3);
-		textField_3.setColumns(10);
-		
-		textField_4 = new JTextField();
-		textField_4.setBounds(258, 155, 86, 20);
-		Configurar.add(textField_4);
-		textField_4.setColumns(10);
-		
-		JComboBox comboBox_2 = new JComboBox();
-		comboBox_2.setBounds(162, 216, 112, 20);
-		Configurar.add(comboBox_2);
-		
-		JButton btnAceptar_1 = new JButton("Aceptar");
-		btnAceptar_1.setBounds(315, 267, 89, 23);
-		Configurar.add(btnAceptar_1);
-		
-		JButton btnCancelar_1 = new JButton("Cancelar");
-		btnCancelar_1.setBounds(27, 267, 89, 23);
-		Configurar.add(btnCancelar_1);
+		textField_5 = new JTextField();
+		textField_5.setBounds(147, 91, 128, 27);
+		AltaLibro.add(textField_5);
+		textField_5.setColumns(10);
 		
 		JPanel Consulta = new JPanel();
 		Consulta.setBounds(0, 0, 434, 316);
 		contentPane.add(Consulta);
 		Consulta.setLayout(null);
 		Consulta.setVisible(false);
+		
+		JPanel Mails = new JPanel();
+		Mails.setBounds(0, 0, 434, 316);
+		Consulta.add(Mails);
+		Mails.setLayout(null);
+		
+		JList list = new JList();
+		list.setBounds(67, 91, 295, 181);
+		Mails.add(list);
 		
 		JPanel Informacion = new JPanel();
 		Informacion.setBounds(0, 92, 434, 224);
@@ -162,6 +142,48 @@ public class Presentacion extends JFrame {
 		JLabel lblCi_1 = new JLabel("CI:");
 		lblCi_1.setBounds(68, 64, 46, 14);
 		PorCI.add(lblCi_1);
+		
+		JPanel Configurar = new JPanel();
+		Configurar.setBounds(0, 0, 434, 316);
+		contentPane.add(Configurar);
+		Configurar.setLayout(null);
+		Configurar.setVisible(false);
+		
+		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setBounds(162, 53, 112, 20);
+		Configurar.add(comboBox_1);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(108, 97, 86, 20);
+		Configurar.add(textField_1);
+		textField_1.setColumns(10);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(258, 97, 86, 20);
+		Configurar.add(textField_2);
+		textField_2.setColumns(10);
+		
+		textField_3 = new JTextField();
+		textField_3.setBounds(108, 155, 86, 20);
+		Configurar.add(textField_3);
+		textField_3.setColumns(10);
+		
+		textField_4 = new JTextField();
+		textField_4.setBounds(258, 155, 86, 20);
+		Configurar.add(textField_4);
+		textField_4.setColumns(10);
+		
+		JComboBox comboBox_2 = new JComboBox();
+		comboBox_2.setBounds(162, 216, 112, 20);
+		Configurar.add(comboBox_2);
+		
+		JButton btnAceptar_1 = new JButton("Aceptar");
+		btnAceptar_1.setBounds(315, 267, 89, 23);
+		Configurar.add(btnAceptar_1);
+		
+		JButton btnCancelar_1 = new JButton("Cancelar");
+		btnCancelar_1.setBounds(27, 267, 89, 23);
+		Configurar.add(btnCancelar_1);
 		
 		JPanel AltaUsuario = new JPanel();
 		AltaUsuario.setBounds(0, 0, 434, 316);
@@ -243,6 +265,7 @@ public class Presentacion extends JFrame {
 				PorCI.setVisible(false);
 				AltaUsuario.setVisible(true);
 				Configurar.setVisible(false);
+				Mails.setVisible(false);
 			}
 		});
 		mnAlta.add(mntmUsuario);
@@ -259,6 +282,7 @@ public class Presentacion extends JFrame {
 				PorCI.setVisible(false);
 				AltaUsuario.setVisible(false);
 				Configurar.setVisible(false);
+				Mails.setVisible(false);
 			}
 		});
 		mnConsulta.add(mntmTodos);
@@ -272,9 +296,24 @@ public class Presentacion extends JFrame {
 				PorCI.setVisible(true);
 				AltaUsuario.setVisible(false);
 				Configurar.setVisible(false);
+				Mails.setVisible(false);
 			}
 		});
 		mnConsulta.add(mntmPorCi);
+		
+		JMenuItem mntmMails = new JMenuItem("Mails");
+		mntmMails.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Consulta.setVisible(false);
+				Informacion.setVisible(false);
+				Todos.setVisible(false);
+				PorCI.setVisible(false);
+				AltaUsuario.setVisible(false);
+				Configurar.setVisible(false);
+				Mails.setVisible(true);
+			}
+		});
+		mnConsulta.add(mntmMails);
 		
 		JMenu mnEditar = new JMenu("Editar");
 		menuBar.add(mnEditar);
@@ -288,6 +327,7 @@ public class Presentacion extends JFrame {
 				PorCI.setVisible(true);
 				AltaUsuario.setVisible(false);
 				Configurar.setVisible(true);
+				Mails.setVisible(false);
 			}
 		});
 		mnEditar.add(mntmEditarUsuarios);

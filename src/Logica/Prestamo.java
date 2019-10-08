@@ -9,7 +9,6 @@ public class Prestamo {
 	private Date fechaSolicitado;
 	private Date fechaDevolucion;
 	private Boolean devuelto;
-	private ArrayList<Libro> libro;
 	
 	Notificacion[] notificacion = new Notificacion[3];
 	
@@ -27,14 +26,6 @@ public class Prestamo {
 
 	public void setNotificacion(Notificacion[] notificacion) {
 		this.notificacion = notificacion;
-	}
-
-	public ArrayList<Libro> getLibro() {
-		return libro;
-	}
-
-	public void setLibro(ArrayList<Libro> libro) {
-		this.libro = libro;
 	}
 
 	public int getId() {
