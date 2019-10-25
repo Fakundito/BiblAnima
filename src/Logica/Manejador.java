@@ -20,7 +20,7 @@ public class Manejador {
 	// s = con.createStatement(); 			Al principio de cada metodo
 	// ResultSet rs = s.executeQuery(...)	Traer desde BD
 	// s.executeUpdate(...)					Mandar a BD
-		
+	//holaaaaa
 	public ArrayList<Usuario> getUsuario() {
 		return usuario;
 	}
@@ -47,6 +47,7 @@ public class Manejador {
 
 	}
 
+	//AltaUsuario
 	public void AltaUsuario(int id, int CI, String nombre, String apellido, String mail, String password,
 			TipoUsuario tipeUser, Orientacion orient, int tope) {
 		
@@ -65,25 +66,43 @@ public class Manejador {
 			  }
 			}
 			catch(Exception e) {
-				//
+				System.out.println("Algo salio mal, intente otra vez");
 			}
 		
 	}
-
-	public Usuario consulta(int id) {
+	//Consulta Usuario
+	public Usuario consultaUsuario(int ci) {
+		try {
+			s = con.createStatement();
+			ResultSet rs = s.executeQuery ("SELECT * FROM usuario where CI="+ ci);
+			try {
+				
+			}catch(Exception e) {
+				
+			}
+				//public void Usuarioo(int rs.getString(1) + int rs.getString(2) + int rs.getString(3) + rs.getString(4)) {
+					
+				//}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
-
 	}
 
+	//Buscar Usuario
 	public Usuario buscarUsuario(int id) {
 		return null;
 
 	}
 
+	//ModificarDatosUsuario
 	public void modificarDatosUsuario(String nombre, String apellido, String mail, String password) {
 
 	}
 
+	//ListarUsuariosExistentes
 	public ArrayList<Usuario> ListarUsuariosExistentes() {
 		try {
 			s = con.createStatement();
@@ -97,16 +116,24 @@ public class Manejador {
 		return usuario;
 	}
 	
-
+	//AltaPrestamo
 	public void altaPrestamo(int id, int codigoISBN, Date fechaPres, Date fechaDev, boolean devuelto) {
 
 	}
 
-	public ArrayList<Prestamo> consultarPrestamo(int idUsuario) {
-		return null;
-
+	//ConsultarPrestamo
+	public ArrayList<Prestamo> consultarPrestamo(int IDu) {
+		try {
+			s = con.createStatement();
+			ResultSet rs = s.executeQuery("SELECT * FROM prestamo where IDP = " + IDu);
+			
+			
+		}catch(Exception e) {
+			
+		}
 	}
 
+	//ListarPrestamo
 	public ArrayList<Prestamo> listarPrestamo() {
 		try {
 			s = con.createStatement();
@@ -121,15 +148,18 @@ public class Manejador {
 
 	}
 
+	//AltaLibro
 	public void altaLibro(int codigoISBN) {
 
 	}
 
+	//ListarLibros
 	public ArrayList<Libro> listarLibros() {
 		return libro;
 
 	}
 
+	//DarDeBajaUnPrestamo
 	public void darDeBajaUnPrestamo() {
 
 	}

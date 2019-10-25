@@ -6,7 +6,7 @@ public class Conn {
     public String driver = "com.mysql.cj.jdbc.Driver";
 
     // Nombre de la base de datos
-    public String database = "proyectofinaño";
+    public String database = "proyectofinal";
 
     // Host
     public String hostname = "127.0.0.1";

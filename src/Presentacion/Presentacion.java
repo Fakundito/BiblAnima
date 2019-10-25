@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import Logica.Manejador;
+
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JMenu;
@@ -67,10 +70,86 @@ public class Presentacion extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		JPanel AltaUsuario = new JPanel();
+		AltaUsuario.setBounds(0, 0, 434, 316);
+		contentPane.add(AltaUsuario);
+		AltaUsuario.setLayout(null);
+		AltaUsuario.setVisible(false);
+		
+		textCIAltaUsuario = new JTextField();
+		textCIAltaUsuario.setBounds(184, 54, 114, 20);
+		AltaUsuario.add(textCIAltaUsuario);
+		textCIAltaUsuario.setColumns(10);
+		
+		textNombreAltaUsuario = new JTextField();
+		textNombreAltaUsuario.setBounds(184, 85, 114, 20);
+		AltaUsuario.add(textNombreAltaUsuario);
+		textNombreAltaUsuario.setColumns(10);
+		
+		textApellidoAltaUsuario = new JTextField();
+		textApellidoAltaUsuario.setColumns(10);
+		textApellidoAltaUsuario.setBounds(184, 116, 114, 20);
+		AltaUsuario.add(textApellidoAltaUsuario);
+		
+		textMailAltaUsuario = new JTextField();
+		textMailAltaUsuario.setColumns(10);
+		textMailAltaUsuario.setBounds(184, 147, 114, 20);
+		AltaUsuario.add(textMailAltaUsuario);
+		
+		textContrasenaAltaUsuario = new JTextField();
+		textContrasenaAltaUsuario.setColumns(10);
+		textContrasenaAltaUsuario.setBounds(184, 178, 114, 20);
+		AltaUsuario.add(textContrasenaAltaUsuario);
+		
+		JComboBox comboBoxTipo = new JComboBox();
+		comboBoxTipo.setBounds(184, 209, 114, 20);
+		AltaUsuario.add(comboBoxTipo);
+		
+		JLabel lblCi = new JLabel("CI");
+		lblCi.setBounds(104, 57, 46, 14);
+		AltaUsuario.add(lblCi);
+		
+		JLabel lblNombre = new JLabel("Nombre");
+		lblNombre.setBounds(104, 88, 46, 14);
+		AltaUsuario.add(lblNombre);
+		
+		JLabel lblApellido = new JLabel("Apellido");
+		lblApellido.setBounds(104, 119, 46, 14);
+		AltaUsuario.add(lblApellido);
+		
+		JLabel lblMail = new JLabel("Mail");
+		lblMail.setBounds(104, 150, 46, 14);
+		AltaUsuario.add(lblMail);
+		
+		JLabel lblContrasea = new JLabel("Contrase\u00F1a");
+		lblContrasea.setBounds(104, 181, 70, 14);
+		AltaUsuario.add(lblContrasea);
+		
+		JLabel lblTipo = new JLabel("Tipo");
+		lblTipo.setBounds(128, 212, 46, 14);
+		AltaUsuario.add(lblTipo);
+		
+		JLabel lblAltaUsuario = new JLabel("Alta Usuario");
+		lblAltaUsuario.setBounds(170, 11, 70, 32);
+		AltaUsuario.add(lblAltaUsuario);
+		
+		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setBounds(45, 265, 89, 23);
+		AltaUsuario.add(btnCancelar);
+		
+		JComboBox comboBoxOrient = new JComboBox();
+		comboBoxOrient.setBounds(184, 240, 114, 20);
+		AltaUsuario.add(comboBoxOrient);
+		
+		JLabel lblOrientacion = new JLabel("Orientacion");
+		lblOrientacion.setBounds(104, 243, 70, 14);
+		AltaUsuario.add(lblOrientacion);
+		
 		JPanel AltaLibro = new JPanel();
 		AltaLibro.setBounds(0, 0, 434, 316);
 		contentPane.add(AltaLibro);
 		AltaLibro.setLayout(null);
+		AltaLibro.setVisible(false);
 		
 		textField_5 = new JTextField();
 		textField_5.setBounds(147, 91, 128, 27);
@@ -87,6 +166,7 @@ public class Presentacion extends JFrame {
 		Mails.setBounds(0, 0, 434, 316);
 		Consulta.add(Mails);
 		Mails.setLayout(null);
+		Mails.setVisible(false);
 		
 		JList list = new JList();
 		list.setBounds(67, 91, 295, 181);
@@ -119,6 +199,16 @@ public class Presentacion extends JFrame {
 		JComboBox comboBox = new JComboBox();
 		comboBox.setBounds(164, 61, 103, 20);
 		Todos.add(comboBox);
+		
+		JButton btnTodosAceptar = new JButton("Aceptar");
+		btnTodosAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				comboBox.getSelectedItem();
+				int cedulaCon = Integer.parseInt((String)comboBox.getSelectedItem());
+			}
+		});
+		btnTodosAceptar.setBounds(280, 60, 89, 23);
+		Todos.add(btnTodosAceptar);
 		
 		JLabel lblUsuario = new JLabel("Usuario");
 		lblUsuario.setBounds(108, 64, 46, 14);
@@ -184,77 +274,6 @@ public class Presentacion extends JFrame {
 		JButton btnCancelar_1 = new JButton("Cancelar");
 		btnCancelar_1.setBounds(27, 267, 89, 23);
 		Configurar.add(btnCancelar_1);
-		
-		JPanel AltaUsuario = new JPanel();
-		AltaUsuario.setBounds(0, 0, 434, 316);
-		contentPane.add(AltaUsuario);
-		AltaUsuario.setLayout(null);
-		AltaUsuario.setVisible(false);
-		
-		textCIAltaUsuario = new JTextField();
-		textCIAltaUsuario.setBounds(184, 54, 114, 20);
-		AltaUsuario.add(textCIAltaUsuario);
-		textCIAltaUsuario.setColumns(10);
-		
-		textNombreAltaUsuario = new JTextField();
-		textNombreAltaUsuario.setBounds(184, 85, 114, 20);
-		AltaUsuario.add(textNombreAltaUsuario);
-		textNombreAltaUsuario.setColumns(10);
-		
-		textApellidoAltaUsuario = new JTextField();
-		textApellidoAltaUsuario.setColumns(10);
-		textApellidoAltaUsuario.setBounds(184, 116, 114, 20);
-		AltaUsuario.add(textApellidoAltaUsuario);
-		
-		textMailAltaUsuario = new JTextField();
-		textMailAltaUsuario.setColumns(10);
-		textMailAltaUsuario.setBounds(184, 147, 114, 20);
-		AltaUsuario.add(textMailAltaUsuario);
-		
-		textContrasenaAltaUsuario = new JTextField();
-		textContrasenaAltaUsuario.setColumns(10);
-		textContrasenaAltaUsuario.setBounds(184, 178, 114, 20);
-		AltaUsuario.add(textContrasenaAltaUsuario);
-		
-		JComboBox comboBoxAltaUsuario = new JComboBox();
-		comboBoxAltaUsuario.setBounds(184, 209, 114, 20);
-		AltaUsuario.add(comboBoxAltaUsuario);
-		
-		JLabel lblCi = new JLabel("CI");
-		lblCi.setBounds(104, 57, 46, 14);
-		AltaUsuario.add(lblCi);
-		
-		JLabel lblNombre = new JLabel("Nombre");
-		lblNombre.setBounds(104, 88, 46, 14);
-		AltaUsuario.add(lblNombre);
-		
-		JLabel lblApellido = new JLabel("Apellido");
-		lblApellido.setBounds(104, 119, 46, 14);
-		AltaUsuario.add(lblApellido);
-		
-		JLabel lblMail = new JLabel("Mail");
-		lblMail.setBounds(104, 150, 46, 14);
-		AltaUsuario.add(lblMail);
-		
-		JLabel lblContrasea = new JLabel("Contrase\u00F1a");
-		lblContrasea.setBounds(104, 181, 70, 14);
-		AltaUsuario.add(lblContrasea);
-		
-		JLabel lblTipo = new JLabel("Tipo");
-		lblTipo.setBounds(128, 212, 46, 14);
-		AltaUsuario.add(lblTipo);
-		
-		JLabel lblAltaUsuario = new JLabel("Alta Usuario");
-		lblAltaUsuario.setBounds(170, 11, 70, 32);
-		AltaUsuario.add(lblAltaUsuario);
-		
-		JButton btnAceptar = new JButton("Aceptar");
-		btnAceptar.setBounds(300, 265, 89, 23);
-		AltaUsuario.add(btnAceptar);
-		
-		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(45, 265, 89, 23);
-		AltaUsuario.add(btnCancelar);
 		
 		JMenuItem mntmUsuario = new JMenuItem("Usuario");
 		mntmUsuario.addActionListener(new ActionListener() {
@@ -331,5 +350,16 @@ public class Presentacion extends JFrame {
 			}
 		});
 		mnEditar.add(mntmEditarUsuarios);
+		
+		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				int i;
+				int cedula = Integer.parseInt(textCIAltaUsuario.getText());
+				Manejador.AltaUsuario(i , cedula, textNombreAltaUsuario.getText(), textApellidoAltaUsuario.getText(), textMailAltaUsuario.getText(), textContrasenaAltaUsuario.getText(), comboBoxTipo.getSelectedItem(), comboBoxOrient.getSelectedItem(), i);
+			}
+		});
+		btnAceptar.setBounds(300, 265, 89, 23);
+		AltaUsuario.add(btnAceptar);
 	}
 }
